@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/screens/notes_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,11 +10,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        appBar: AppBar(
+          title: Center(
+            child: Text("Notes", style: TextStyle(color: Colors.white)),
+          ),
+          backgroundColor: Colors.deepPurple.shade300,
         ),
+        body: NotesScreen(),
       ),
     );
   }
