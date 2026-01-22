@@ -6,12 +6,12 @@ const dummyNotes = [
   Note(
     title: "Note Header",
     content: "I am able to write a note! YIPIEE!",
-    color: Colors.lightGreen,
+    bgColor: Colors.lightGreen,
   ),
   Note(
     title: "Shopping List",
     content: "- Milk\n- Bread\n- Eggs\n- Coffee",
-    color: Colors.amber,
+    bgColor: Colors.amber,
   ),
   Note(
     title: "Reminder",
@@ -20,7 +20,7 @@ const dummyNotes = [
   Note(
     title: "Ideas",
     content: "• Notes app\n• Weather app\n• Simple game",
-    color: Colors.lightBlueAccent,
+    bgColor: Colors.lightBlueAccent,
   ),
   Note(
     title: "Quote",
@@ -29,11 +29,12 @@ const dummyNotes = [
   Note(
     title: "Meeting Notes",
     content: "Discuss UI improvements and bug fixes.",
-    color: Colors.teal,
+    bgColor: Colors.teal,
+    txtColor: Colors.white,
   ),
   Note(
     title: "Daily Journal",
     content: "Learned about widgets and state management today.",
-    color: Colors.orangeAccent,
+    bgColor: Colors.orangeAccent,
   ),
 ];
