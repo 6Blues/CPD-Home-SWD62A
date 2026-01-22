@@ -35,6 +35,6 @@ const dummyNotes = [
   Note(
     title: "Daily Journal",
     content: "Learned about widgets and state management today.",
-    colours: 6,
+    colours: 5,
   ),
 ];

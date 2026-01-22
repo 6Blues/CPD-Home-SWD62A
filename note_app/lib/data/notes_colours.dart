@@ -7,15 +7,33 @@ const List<NoteColour> noteColors = [
     txtColor: Color.fromRGBO(33, 33, 33, 1),
   ),
 
-  NoteColour(bgColor: Color(0xFFC8E6C9), txtColor: Color(0xFF1B5E20)),
+  NoteColour(
+    bgColor: Color.fromRGBO(200, 230, 201, 1),
+    txtColor: Color.fromRGBO(27, 94, 32, 1),
+  ),
 
-  NoteColour(bgColor: Color(0xFFFFECB3), txtColor: Color(0xFF5D4037)),
+  NoteColour(
+    bgColor: Color.fromRGBO(255, 236, 179, 1),
+    txtColor: Color.fromRGBO(93, 64, 55, 1),
+  ),
 
-  NoteColour(bgColor: Color(0xFFBBDEFB), txtColor: Color(0xFF0D47A1)),
+  NoteColour(
+    bgColor: Color.fromRGBO(187, 222, 251, 1),
+    txtColor: Color.fromRGBO(13, 71, 161, 1),
+  ),
 
-  NoteColour(bgColor: Color(0xFFFFE0B2), txtColor: Color(0xFFE65100)),
+  NoteColour(
+    bgColor: Color.fromRGBO(255, 224, 178, 1),
+    txtColor: Color.fromRGBO(182, 64, 1, 1),
+  ),
 
-  NoteColour(bgColor: Color(0xFFD1C4E9), txtColor: Color(0xFF4527A0)),
+  NoteColour(
+    bgColor: Color.fromRGBO(209, 196, 233, 1),
+    txtColor: Color.fromRGBO(69, 39, 160, 1),
+  ),
 
-  NoteColour(bgColor: Color(0xFFF8BBD0), txtColor: Color(0xFF880E4F)),
+  NoteColour(
+    bgColor: Color.fromRGBO(248, 187, 208, 1),
+    txtColor: Color.fromRGBO(136, 14, 79, 1),
+  ),
 ];
