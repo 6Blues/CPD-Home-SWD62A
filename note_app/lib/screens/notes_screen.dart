@@ -6,16 +6,38 @@ class NotesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      padding: const EdgeInsets.all(10),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, //num of columns
-        childAspectRatio: 3 / 2, //width / height ratio
-        crossAxisSpacing: 20, // spacing between columns
-        mainAxisSpacing: 20, // spacing between rows
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 25.0),
+        child: Row(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Column(
+                children: [
+                  for (int i = 0; i < dummyNotes.length; i += 2)
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(dummyNotes[i].title),
+                    ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                children: [
+                  for (int i = 1; i < dummyNotes.length; i += 2)
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(dummyNotes[i].title),
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-      children: [for (final note in dummyNotes) Text(note.title)],
     );
-    ;
   }
 }
