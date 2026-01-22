@@ -15,8 +15,20 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Center(
-            child: Text("Notes", style: TextStyle(color: Colors.white)),
+            child: Text(
+              "Notes",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.add, color: Colors.white),
+            ),
+          ],
           backgroundColor: Colors.deepPurple.shade300,
         ),
         body: NotesScreen(),
