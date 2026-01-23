@@ -4,9 +4,10 @@ import 'package:note_app/models/note.dart';
 
 // ignore: must_be_immutable
 class NoteCard extends StatelessWidget {
-  NoteCard({super.key, required this.note});
+  NoteCard({super.key, required this.note, required this.onSelectedNote});
 
   Note note;
+  final void Function(Note) onSelectedNote;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,9 @@ class NoteCard extends StatelessWidget {
       color: noteColors[note.colours].bgColor,
       borderRadius: BorderRadius.circular(5),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          onSelectedNote(note);
+        },
         borderRadius: BorderRadius.circular(5),
         splashColor: noteColors[note.colours].bgColor,
         child: Ink(

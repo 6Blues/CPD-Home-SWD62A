@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/data/dummy_notes.dart';
 import 'package:note_app/models/note.dart';
-import 'package:note_app/screens/add_note_screen.dart';
+import 'package:note_app/screens/view_note_screen.dart';
+import 'package:note_app/widgets/add_note.dart';
 import 'package:note_app/widgets/note_card.dart';
 
 class NotesScreen extends StatefulWidget {
@@ -27,6 +28,12 @@ class _NotesScreenState extends State<NotesScreen> {
         dummyNotes.add(n);
       });
     }
+  }
+
+  void viewNote(Note note) {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (ctx) => ViewNoteScreen(note: note)));
   }
 
   @override
@@ -59,7 +66,10 @@ class _NotesScreenState extends State<NotesScreen> {
                     for (int i = 0; i < dummyNotes.length; i += 2)
                       Padding(
                         padding: const EdgeInsets.only(left: 10, bottom: 10),
-                        child: NoteCard(note: dummyNotes[i]),
+                        child: NoteCard(
+                          note: dummyNotes[i],
+                          onSelectedNote: viewNote,
+                        ),
                       ),
                   ],
                 ),
@@ -71,7 +81,10 @@ class _NotesScreenState extends State<NotesScreen> {
                     for (int i = 1; i < dummyNotes.length; i += 2)
                       Padding(
                         padding: const EdgeInsets.only(right: 10, bottom: 10),
-                        child: NoteCard(note: dummyNotes[i]),
+                        child: NoteCard(
+                          note: dummyNotes[i],
+                          onSelectedNote: viewNote,
+                        ),
                       ),
                   ],
                 ),
