@@ -22,9 +22,11 @@ class _NotesScreenState extends State<NotesScreen> {
   }
 
   void addNote(Note n) {
-    setState(() {
-      dummyNotes.add(n);
-    });
+    if (n.title != "" || n.content != "") {
+      setState(() {
+        dummyNotes.add(n);
+      });
+    }
   }
 
   @override

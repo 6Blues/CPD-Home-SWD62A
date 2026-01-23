@@ -10,47 +10,52 @@ class NoteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        color: noteColors[note.colours].bgColor,
+    return Material(
+      color: noteColors[note.colours].bgColor,
+      borderRadius: BorderRadius.circular(5),
+      child: InkWell(
+        onTap: () {},
         borderRadius: BorderRadius.circular(5),
-      ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    note.title,
-                    style: TextStyle(
-                      color: noteColors[note.colours].txtColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    softWrap: true,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Row(
+        splashColor: noteColors[note.colours].bgColor,
+        child: Ink(
+          padding: const EdgeInsets.all(10),
+          child: Column(
             children: [
-              Expanded(
-                child: Text(
-                  note.content,
-                  style: TextStyle(
-                    color: noteColors[note.colours].txtColor,
-                    fontSize: 15,
-                  ),
-                  softWrap: true,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        note.title,
+                        style: TextStyle(
+                          color: noteColors[note.colours].txtColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        softWrap: true,
+                      ),
+                    ),
+                  ],
                 ),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      note.content,
+                      style: TextStyle(
+                        color: noteColors[note.colours].txtColor,
+                        fontSize: 15,
+                      ),
+                      softWrap: true,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
