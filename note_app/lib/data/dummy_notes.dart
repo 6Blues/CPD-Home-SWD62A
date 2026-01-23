@@ -1,6 +1,6 @@
 import 'package:note_app/models/note.dart';
 
-const dummyNotes = [
+var dummyNotes = [
   Note(title: "Hello", content: "This is some content"),
   Note(
     title: "Note Header",

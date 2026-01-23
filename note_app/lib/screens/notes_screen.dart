@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/data/dummy_notes.dart';
+import 'package:note_app/models/note.dart';
 import 'package:note_app/screens/add_note_screen.dart';
 import 'package:note_app/widgets/note_card.dart';
 
@@ -14,7 +15,16 @@ class NotesScreen extends StatefulWidget {
 
 class _NotesScreenState extends State<NotesScreen> {
   void _openAddNoteOverlay() {
-    showModalBottomSheet(context: context, builder: (ctx) => AddNoteScreen());
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => AddNoteScreen(saveNote: addNote),
+    );
+  }
+
+  void addNote(Note n) {
+    setState(() {
+      dummyNotes.add(n);
+    });
   }
 
   @override
