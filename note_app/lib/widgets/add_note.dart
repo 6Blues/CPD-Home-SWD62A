@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:note_app/data/notes_colours.dart';
 import 'package:note_app/models/note.dart';
 
@@ -18,11 +21,24 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
   final _titleController = TextEditingController();
   final _contentController = TextEditingController();
 
+  File? _imageTaken;
+
   @override
   void dispose() {
     _titleController.dispose();
     _contentController.dispose();
     super.dispose();
+  }
+
+  Future _imageFromCamera() async {
+    final returnedImage = await ImagePicker().pickImage(
+      source: ImageSource.camera,
+    );
+    if (returnedImage != null) {
+      setState(() {
+        _imageTaken = File(returnedImage.path);
+      });
+    }
   }
 
   @override
@@ -61,7 +77,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
             SizedBox(height: 20),
             TextField(
               controller: _contentController,
-              maxLines: 10,
+              maxLines: 5,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 label: Text(
@@ -79,6 +95,46 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                 color: noteColors[_selectedColourIndex].txtColor,
               ),
             ),
+            const SizedBox(height: 20),
+
+            Row(
+              children: [
+                ElevatedButton.icon(
+                  onPressed: _imageFromCamera,
+                  icon: const Icon(Icons.camera_alt),
+                  label: const Text('Add photo'),
+                ),
+
+                const SizedBox(width: 12),
+
+                if (_imageTaken != null)
+                  Expanded(
+                    child: Text(
+                      'Photo added',
+                      style: TextStyle(
+                        color: noteColors[_selectedColourIndex].txtColor,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ),
+
+                Spacer(),
+
+                ElevatedButton(
+                  onPressed: () {
+                    addNote(
+                      Note(
+                        title: _titleController.text,
+                        content: _contentController.text,
+                        colours: _selectedColourIndex,
+                      ),
+                    );
+                  },
+                  child: const Text('Save Note'),
+                ),
+              ],
+            ),
+
             const SizedBox(height: 20),
 
             Row(
@@ -122,21 +178,6 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                         ),
                       ),
                   ],
-                ),
-
-                Spacer(),
-
-                ElevatedButton(
-                  onPressed: () {
-                    addNote(
-                      Note(
-                        title: _titleController.text,
-                        content: _contentController.text,
-                        colours: _selectedColourIndex,
-                      ),
-                    );
-                  },
-                  child: const Text('Save Note'),
                 ),
               ],
             ),
