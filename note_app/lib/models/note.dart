@@ -1,5 +1,3 @@
-import 'dart:io';
-
 class Note {
   const Note({
     this.title = "",
@@ -10,6 +8,6 @@ class Note {
 
   final String title;
   final String content;
-  final File? imagePath;
+  final String? imagePath;
   final int colours;
 }

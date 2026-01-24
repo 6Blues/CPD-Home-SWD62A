@@ -126,6 +126,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                       Note(
                         title: _titleController.text,
                         content: _contentController.text,
+                        imagePath: _imageTaken?.path,
                         colours: _selectedColourIndex,
                       ),
                     );

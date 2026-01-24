@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:note_app/data/notes_colours.dart';
 import 'package:note_app/models/note.dart';
@@ -46,6 +48,16 @@ class ViewNoteScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                if (note.imagePath != null)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Image.file(
+                      File(note.imagePath!),
+                      width: double.infinity,
+                      height: 250,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Row(
