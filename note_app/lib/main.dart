@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/screens/notes_screen.dart';
+import 'package:note_app/services/notification_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.init();
   runApp(const MainApp());
 }
 

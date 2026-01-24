@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:note_app/data/notes_colours.dart';
 import 'package:note_app/models/note.dart';
+import 'package:note_app/services/notification_service.dart';
 
 class AddNoteScreen extends StatefulWidget {
   final void Function(Note) saveNote;
@@ -45,6 +46,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
   Widget build(BuildContext context) {
     addNote(Note note) {
       widget.saveNote(note);
+      NotificationService.showNoteAdded(note.title);
       Navigator.pop(context);
     }
 
