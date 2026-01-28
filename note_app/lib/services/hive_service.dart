@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 import 'package:note_app/models/note.dart';
 
 class HiveService {
-  static final notesBox = Hive.box("Notes");
+  static Box get notesBox => Hive.box("Notes");
 
   static List<Note> getNotes() {
     return notesBox.values.map((data) {

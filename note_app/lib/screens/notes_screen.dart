@@ -50,9 +50,13 @@ class _NotesScreenState extends State<NotesScreen> {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         actions: [
-          IconButton(
-            onPressed: _openAddNoteOverlay,
-            icon: Icon(Icons.add, color: Colors.white),
+          Semantics(
+            label: "Add Note",
+            button: true,
+            child: IconButton(
+              onPressed: _openAddNoteOverlay,
+              icon: Icon(Icons.add, color: Colors.white),
+            ),
           ),
         ],
         backgroundColor: Colors.deepPurple.shade300,
